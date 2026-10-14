@@ -1,19 +1,66 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Resonance Atlas | The Cinders We Obey</title><link rel="stylesheet" href="../style.css?v=4"><script src="../chart.js" defer></script><script src="../site.js?v=4" defer></script></head><body><a class="skip-link" href="#main-content">Skip to content</a><nav aria-label="Main navigation"><a class="brand" href="../">The Cinders We Obey</a><button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-links">Menu</button><div id="site-links"><a href="../">Home</a><a href="../reading/">Reading</a><a href="../characters/">Characters</a><a href="../world/">World</a><a aria-current="page" href="../powers/">Resonance Atlas</a><a href="../glossary/">Glossary</a></div></nav><header><span class="eyebrow">The disciplines of resonance</span><h1>Resonance Atlas</h1><p>Select a discipline or a node to explore its abilities, branches, advantages and counters.</p></header><main id="main-content"><div id="resonance-wheel">
-  <h2>The Resonance Atlas</h2>
-  <div class="viz-controls"><label class="form-label">Power <select class="form-select" id="res-power"></select></label></div>
-  <div class="viz-row text-small"><span class="key-out">Gold: selected power has the advantage →</span><span class="key-in">Blue: incoming counter → selected power</span><span>Dashed arrow: parent → advanced branch</span></div>
-  <svg id="res-ring" role="img" aria-label="Circular power matchup chart"></svg>
-  <div id="res-detail" aria-live="polite"></div>
-  <style>
-    #resonance-wheel svg {display:block;width:100%;overflow:visible}
-    #resonance-wheel .node {fill:var(--background);stroke:var(--border)}
-    #resonance-wheel .active {fill:var(--primary);stroke:var(--primary)}
-    #resonance-wheel text {fill:var(--foreground);font-weight:400}
-    #resonance-wheel .active-label {fill:var(--primary-foreground)}
-    #resonance-wheel .edge {fill:none;stroke:var(--viz-series-1);stroke-width:2}
-    #resonance-wheel .incoming {stroke:var(--viz-series-2)}
-    #resonance-wheel .branch {stroke:var(--muted-foreground);stroke-dasharray:5 4}
-    #resonance-wheel .notes {display:grid;grid-template-columns:1fr 1fr;gap:16px}
-    @media(max-width:500px){#resonance-wheel .notes{grid-template-columns:1fr}}
-  </style>
-</div></main><footer>Working worldbuilding guide. Matchups depend on terrain, resources, preparation and skill; arrows never mean an automatic victory. Rimework and Alloywork are advanced branches, not separate primary affinities.</footer></body></html>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Resonance Atlas | The Cinders We Obey</title>
+    <link rel="stylesheet" href="../style.css?v=4" />
+    <script src="../chart.js" defer></script>
+    <script src="../site.js?v=4" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <nav aria-label="Main navigation">
+      <a class="brand" href="../">The Cinders We Obey</a
+      ><button
+        class="menu-toggle"
+        type="button"
+        aria-expanded="false"
+        aria-controls="site-links"
+      >
+        Menu
+      </button>
+      <div id="site-links">
+        <a href="../">Home</a><a href="../reading/">Reading</a
+        ><a href="../characters/">Characters</a><a href="../world/">World</a
+        ><a aria-current="page" href="../powers/">Resonance Atlas</a
+        ><a href="../glossary/">Glossary</a>
+      </div>
+    </nav>
+    <header>
+      <span class="eyebrow">The disciplines of resonance</span>
+      <h1>Resonance Atlas</h1>
+      <p>
+        Select a discipline or a node to explore its abilities, branches,
+        advantages and counters.
+      </p>
+    </header>
+    <main id="main-content">
+      <div id="resonance-wheel">
+        <h2>The Resonance Atlas</h2>
+        <div class="viz-controls">
+          <label class="form-label"
+            >Power
+            <select class="form-select" id="res-power"></select
+          ></label>
+        </div>
+        <div class="viz-row text-small">
+          <span class="key-out">Gold: selected power has the advantage →</span
+          ><span class="key-in">Blue: incoming counter → selected power</span
+          ><span>Dashed arrow: parent → advanced branch</span>
+        </div>
+        <svg
+          id="res-ring"
+          role="img"
+          aria-label="Circular power matchup chart"
+        ></svg>
+        <div id="res-detail" aria-live="polite"></div>
+      </div>
+    </main>
+    <footer>
+      Working worldbuilding guide. Matchups depend on terrain, resources,
+      preparation and skill; arrows never mean an automatic victory. Rimework
+      and Alloywork are advanced branches, not separate primary affinities.
+    </footer>
+  </body>
+</html>
