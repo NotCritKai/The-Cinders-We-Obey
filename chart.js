@@ -183,7 +183,13 @@
   select.value = selectedPowerIndex;
   const escapeHtml = (s) =>
     s.replaceAll("&", "&amp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;");
+  let renderedPowerIndex = null;
   function renderChart() {
+    const selectionChanged =
+      renderedPowerIndex !== null && renderedPowerIndex !== selectedPowerIndex;
+    const focusedPower = svg.contains(document.activeElement)
+      ? document.activeElement.dataset.power
+      : null;
     const w = root.clientWidth,
       h = Math.max(400, w * 0.82),
       cx = w / 2,
@@ -240,6 +246,8 @@
       out += `<g class="node-group" role="button" tabindex="0" data-power="${i}" aria-label="Select ${p[0]}"><rect class="node ${i === selectedPowerIndex ? "active" : ""}" x="${x - nw / 2}" y="${y - nh / 2}" width="${nw}" height="${nh}" rx="6"/><text class="${i === selectedPowerIndex ? "active-label" : ""}" x="${x}" y="${y - 2}" text-anchor="middle">${p[0]}</text><text class="text-small ${i === selectedPowerIndex ? "active-label" : ""}" x="${x}" y="${y + 13}" text-anchor="middle">${i === 9 ? "Water branch" : i === 10 ? "Earth branch" : p[1]}</text></g>`;
     });
     svg.innerHTML = out;
+    if (focusedPower != null)
+      svg.querySelector(`[data-power="${focusedPower}"]`)?.focus();
     svg.querySelectorAll("[data-power]").forEach((node) => {
       const activate = () => {
         selectedPowerIndex = Number(node.dataset.power);
@@ -270,6 +278,8 @@
         : "<p>No specific counter established; resources, positioning and concentration still matter.</p>";
     }
     detail.innerHTML = `<h3>${p[0]}</h3><p>${escapeHtml(p[2])} ${escapeHtml(p[3])}</p><div class="notes"><section><h3>Advantages →</h3>${renderMatchupList(adv, false)}</section><section><h3>Vulnerable to ←</h3>${renderMatchupList(weak, true)}</section></div>`;
+    if (selectionChanged) window.revealPanel?.(detail);
+    renderedPowerIndex = selectedPowerIndex;
   }
   select.addEventListener("change", () => {
     selectedPowerIndex = Number(select.value);

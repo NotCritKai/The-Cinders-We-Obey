@@ -49,3 +49,16 @@ node --check chart.js
 ```
 
 Publish the whole folder as one static site when ready. Deployment has not been confirmed.
+
+## Motion
+
+`motion.css` contains the selected transitions.dev recipes and site-specific motion tokens. All pages load it after `style.css`. Tune durations and the short panel travel in its final `:root` block.
+
+- Mobile navigation: dropdown open/close, with Escape dismissal and hidden links excluded from keyboard focus.
+- Character selection and Atlas details: short panel reveal on selection changes, with no first-load entrance delay.
+- Glossary: soft crossfade of the matching-term count; rapid typing cancels previous swaps.
+- Contents links: small chevron response on hover.
+
+`site.js` owns shared motion helpers and interaction cleanup. `chart.js` requests a detail reveal when the selected power changes and retains focus when rebuilding chart nodes. Reduced-motion preferences skip content reveals and text swaps and disable recipe transitions. Static content stays visible without JavaScript.
+
+Motion recipes are from [transitions.dev](https://transitions.dev), used under its personal and commercial use license. No AI-generation runtime or framework dependency is installed.
